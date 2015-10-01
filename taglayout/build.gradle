@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/flavp/AndroidTagLayout'
     gitUrl = 'https://github.com/flavp/AndroidTagLayout.git'
 
-    libraryVersion = '0.0.2'
+    libraryVersion = '0.0.3'
 
     developerId = 'flavp'
     developerName = 'Flavius Popescu'

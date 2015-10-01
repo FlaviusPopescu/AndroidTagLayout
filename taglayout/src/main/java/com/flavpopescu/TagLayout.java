@@ -5,9 +5,9 @@ import android.content.res.TypedArray;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.res.ResourcesCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -37,8 +37,8 @@ public class TagLayout extends LinearLayout {
     private int[] mTagWidths;
     private int mAvailableWidth;
     private Set<Integer> mSelectedTags;
-    private Drawable mTagBackgroundSelectedDrawable;
-    private Drawable mTagBackgroundDrawable;
+    private int mTagBackgroundId;
+    private int mTagBackgroundSelectedId;
 
     public TagLayout(Context context) {
         super(context);
@@ -60,14 +60,8 @@ public class TagLayout extends LinearLayout {
             mVerticalSpacing = a.getDimension(R.styleable.TagLayout_com_flavpopescu_tagVerticalSpacing,
                     (int) (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, mContext.getResources().getDisplayMetrics())));
 
-            int tagBackgroundId = a.getResourceId(R.styleable.TagLayout_com_flavpopescu_tagBackground, 0);
-            if (tagBackgroundId != 0) {
-                mTagBackgroundDrawable = ResourcesCompat.getDrawable(mContext.getResources(), tagBackgroundId, null);
-            }
-            int tagBackgroundSelectedId = a.getResourceId(R.styleable.TagLayout_com_flavpopescu_tagBackgroundSelected, 0);
-            if (tagBackgroundSelectedId != 0) {
-                mTagBackgroundSelectedDrawable = ResourcesCompat.getDrawable(mContext.getResources(), tagBackgroundSelectedId, null);
-            }
+            mTagBackgroundId = a.getResourceId(R.styleable.TagLayout_com_flavpopescu_tagBackground, 0);
+            mTagBackgroundSelectedId = a.getResourceId(R.styleable.TagLayout_com_flavpopescu_tagBackgroundSelected, 0);
 
             mTagTextPadding = a.getDimension(R.styleable.TagLayout_com_flavpopescu_tagTextPadding,
                     (int) (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, mContext.getResources().getDisplayMetrics())));
@@ -85,6 +79,10 @@ public class TagLayout extends LinearLayout {
         mSelectedTags = new HashSet<>();
     }
 
+    public Set<Integer> getSelectedTags() {
+        return mSelectedTags;
+    }
+
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -97,10 +95,23 @@ public class TagLayout extends LinearLayout {
             String currentTag = mTags[i];
 
             final TextView textView = new TextView(mContext);
-            if (mTagBackgroundDrawable != null) {
-                textView.setBackground(mTagBackgroundDrawable);
-            }
             textView.setTextColor(mTextColor);
+
+            final Drawable drawableNormal;
+            final Drawable drawableSelected;
+            if (mTagBackgroundId > 0) {
+                drawableNormal = getResources().getDrawable(mTagBackgroundId).getConstantState().newDrawable();
+                textView.setBackground(drawableNormal);
+            } else {
+                drawableNormal = null;
+            }
+
+            if (mTagBackgroundSelectedId > 0) {
+                drawableSelected = getResources().getDrawable(mTagBackgroundSelectedId).getConstantState().newDrawable();
+            } else {
+                drawableSelected = null;
+            }
+
             textView.setText(currentTag);
 
             Paint paint = new Paint();
@@ -125,16 +136,16 @@ public class TagLayout extends LinearLayout {
                 public void onClick(View v) {
                     if (mSelectedTags.contains(tagIndex)) {
                         mSelectedTags.remove(tagIndex);
-                        if (mTagBackgroundDrawable != null) {
-                            textView.setBackground(mTagBackgroundDrawable);
-                        }
                         textView.setTextColor(mTextColor);
+                        if (drawableNormal != null) {
+                            textView.setBackground(drawableNormal);
+                        }
                     } else {
                         mSelectedTags.add(tagIndex);
-                        if (mTagBackgroundSelectedDrawable != null) {
-                            textView.setBackground(mTagBackgroundSelectedDrawable);
-                        }
                         textView.setTextColor(mTextColorSelected);
+                        if (drawableSelected != null) {
+                            textView.setBackground(drawableSelected);
+                        }
                     }
                 }
             });

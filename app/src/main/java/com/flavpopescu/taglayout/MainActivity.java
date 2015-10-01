@@ -1,16 +1,15 @@
 package com.flavpopescu.taglayout;
 
-import android.graphics.Paint;
-import android.graphics.Point;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.util.TypedValue;
-import android.view.Display;
 import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.flavpopescu.TagLayout;
+
+import java.util.Iterator;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -18,28 +17,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        int width = size.x;
-        int height = size.y;
+        final TagLayout tagLayout = (TagLayout) findViewById(R.id.tagLayout);
+        Button submit = (Button) findViewById(R.id.submit_button);
 
-        Log.i("MainActivity", "#size screen width x height: " + width + " x " + height);
+        final String[] tags = getResources().getStringArray(R.array.tags_sample);
 
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
-        Paint paint = new Paint();
-        paint.setTypeface(typeface);
-        paint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 14, getResources().getDisplayMetrics()));
-        Log.i("TagLayout", "text size is : " + paint.getTextSize());
-        float textWidth = paint.measureText(getString(R.string.fox));
-        Log.i("TagLayout", "#size measure text: " + textWidth);
-
-        TextView textView = (TextView) findViewById(R.id.textView_sampleText);
-        textView.setTypeface(typeface);
-
-        View view = findViewById(R.id.ruler);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams((int)textWidth, 5);
-        params.addRule(RelativeLayout.BELOW, R.id.textViewExplanation);
-        view.setLayoutParams(params);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Set<Integer> selectedTags = tagLayout.getSelectedTags();
+                Iterator<Integer> iterator = selectedTags.iterator();
+                String message;
+                if (iterator.hasNext()) {
+                    StringBuilder builder = new StringBuilder("You selected: ");
+                    builder.append(tags[iterator.next()]);
+                    while (iterator.hasNext()) {
+                        builder.append(", ");
+                        builder.append(tags[iterator.next()]);
+                    }
+                    message = builder.toString();
+                } else {
+                    message = "Please make a selection";
+                }
+                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

@@ -5,6 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="fox">the quick brown fox 1234#$ @#$!@#$1234 -- !</string>
     <string name="explanation">Demonstrating text measurement: The overline should have the same length as the displayed sample text:</string>
+    <string name="check">Check</string>
 
     <array name="tags_sample">
         <item>Tag1</item>
