@@ -28,7 +28,7 @@ Add the library as a dependency in your module's `build.gradle`:
 
     dependencies {
       ...
-      compile 'com.flavpopescu:taglayout:0.0.2'
+      compile 'com.flavpopescu:taglayout:0.0.3'
     }
     
 Make sure you have `jcenter()` added as a maven repo in your project's `build.gradle` (newer Android Studio version already include this by default):
