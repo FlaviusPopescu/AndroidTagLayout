@@ -1,6 +1,8 @@
 # AndroidTagLayout
 A custom view that nicely displays a list of selectable tags.
 
+[ ![Download](https://api.bintray.com/packages/flavp/maven/taglayout/images/download.svg) ](https://bintray.com/flavp/maven/taglayout/_latestVersion)
+
 ![TagLayout Screenshot](screenshot1.png)
 
 ## Usage
