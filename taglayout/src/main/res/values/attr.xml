@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TagLayout">
+        <attr name="com.flavpopescu.tags" format="integer"/>
+        <attr name="com.flavpopescu.tagBackground" format="integer"/>
+        <attr name="com.flavpopescu.tagBackgroundSelected" format="integer"/>
+        <attr name="com.flavpopescu.tagHorizontalSpacing" format="dimension"/>
+        <attr name="com.flavpopescu.tagVerticalSpacing" format="dimension"/>
+        <attr name="com.flavpopescu.tagTextPadding" format="dimension"/>
+        <attr name="com.flavpopescu.tagTextFont" format="string"/>
+        <attr name="com.flavpopescu.tagTextSize" format="dimension"/>
+        <attr name="com.flavpopescu.tagTextColor" format="color"/>
+        <attr name="com.flavpopescu.tagTextColorSelected" format="color"/>
+        <attr name="com.flavpopescu.shuffleRows" format="boolean"/>
+        <attr name="com.flavpopescu.smarterRows" format="boolean"/>
+    </declare-styleable>
+</resources>
