@@ -38,7 +38,3 @@ Make sure you have `jcenter()` added as a maven repo in your project's `build.gr
     repositories {
         jcenter()
     }
-
-**Note**: The library may still not be found in `jcenter` as it syncs. If so, please add the following to your repositories:
-
-    maven { url 'https://dl.bintray.com/flavp/maven/'}
