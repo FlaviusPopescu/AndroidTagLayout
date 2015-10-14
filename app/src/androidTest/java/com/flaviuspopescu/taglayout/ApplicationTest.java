@@ -1,4 +1,4 @@
-package com.flavpopescu.taglayout;
+package com.flaviuspopescu.taglayout;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

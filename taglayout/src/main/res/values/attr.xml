@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="TagLayout">
-        <attr name="com.flavpopescu.tags" format="integer"/>
-        <attr name="com.flavpopescu.tagBackground" format="integer"/>
-        <attr name="com.flavpopescu.tagBackgroundSelected" format="integer"/>
-        <attr name="com.flavpopescu.tagHorizontalSpacing" format="dimension"/>
-        <attr name="com.flavpopescu.tagVerticalSpacing" format="dimension"/>
-        <attr name="com.flavpopescu.tagTextPadding" format="dimension"/>
-        <attr name="com.flavpopescu.tagTextFont" format="string"/>
-        <attr name="com.flavpopescu.tagTextSize" format="dimension"/>
-        <attr name="com.flavpopescu.tagTextColor" format="color"/>
-        <attr name="com.flavpopescu.tagTextColorSelected" format="color"/>
-        <attr name="com.flavpopescu.shuffleRows" format="boolean"/>
-        <attr name="com.flavpopescu.smarterRows" format="boolean"/>
+        <attr name="com.flaviuspopescu.tags" format="integer"/>
+        <attr name="com.flaviuspopescu.tagBackground" format="integer"/>
+        <attr name="com.flaviuspopescu.tagBackgroundSelected" format="integer"/>
+        <attr name="com.flaviuspopescu.tagHorizontalSpacing" format="dimension"/>
+        <attr name="com.flaviuspopescu.tagVerticalSpacing" format="dimension"/>
+        <attr name="com.flaviuspopescu.tagTextPadding" format="dimension"/>
+        <attr name="com.flaviuspopescu.tagTextFont" format="string"/>
+        <attr name="com.flaviuspopescu.tagTextSize" format="dimension"/>
+        <attr name="com.flaviuspopescu.tagTextColor" format="color"/>
+        <attr name="com.flaviuspopescu.tagTextColorSelected" format="color"/>
+        <attr name="com.flaviuspopescu.shuffleRows" format="boolean"/>
+        <attr name="com.flaviuspopescu.smarterRows" format="boolean"/>
     </declare-styleable>
 </resources>

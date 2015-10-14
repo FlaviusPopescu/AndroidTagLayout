@@ -1,4 +1,4 @@
-package com.flavpopescu;
+package com.flaviuspopescu;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

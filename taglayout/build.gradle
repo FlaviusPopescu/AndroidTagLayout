@@ -4,20 +4,20 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'taglayout'
 
-    publishedGroupId = 'com.flavpopescu'
+    publishedGroupId = 'com.flaviuspopescu'
     libraryName = 'taglayout'
     artifact = 'taglayout'
 
     libraryDescription = 'A custom Android view for displaying tags'
 
-    siteUrl = 'https://github.com/flavp/AndroidTagLayout'
-    gitUrl = 'https://github.com/flavp/AndroidTagLayout.git'
+    siteUrl = 'https://github.com/FlaviusPopescu/AndroidTagLayout'
+    gitUrl = 'https://github.com/FlaviusPopescu/AndroidTagLayout.git'
 
-    libraryVersion = '0.0.3'
+    libraryVersion = '0.0.6'
 
     developerId = 'flavp'
     developerName = 'Flavius Popescu'
-    developerEmail = 'Flavius Popescu@gmail.com'
+    developerEmail = 'flavius.popescu@gmail.com'
 
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'

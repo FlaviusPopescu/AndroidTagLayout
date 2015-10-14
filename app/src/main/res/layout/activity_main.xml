@@ -7,19 +7,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:id="@+id/container">
 
-        <com.flavpopescu.TagLayout
+
+        <com.flaviuspopescu.TagLayout
             android:id="@+id/tagLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            custom:com.flavpopescu.tagBackground="@drawable/rounded_rectangle"
-            custom:com.flavpopescu.tagBackgroundSelected="@drawable/rounded_rectangle_selected"
-            custom:com.flavpopescu.tagTextColor="@android:color/white"
-            custom:com.flavpopescu.tagTextFont="fonts/Roboto-Medium.ttf"
-            custom:com.flavpopescu.tagTextPadding="@dimen/tag_text_padding"
-            custom:com.flavpopescu.tagVerticalSpacing="8dp"
-            custom:com.flavpopescu.tags="@array/tags_sample"
+            android:padding="8dp"
+            custom:com.flaviuspopescu.tagBackground="@drawable/rounded_rectangle"
+            custom:com.flaviuspopescu.tagBackgroundSelected="@drawable/rounded_rectangle_selected"
+            custom:com.flaviuspopescu.tagTextColor="@android:color/white"
+            custom:com.flaviuspopescu.tagTextFont="fonts/Roboto-Medium.ttf"
+            custom:com.flaviuspopescu.tagTextPadding="@dimen/tag_text_padding"
+            custom:com.flaviuspopescu.tagVerticalSpacing="8dp"
             />
 
         <Button
