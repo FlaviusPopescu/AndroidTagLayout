@@ -30,7 +30,7 @@ Add the library as a dependency in your module's `build.gradle`:
 
     dependencies {
       ...
-      compile 'com.flavpopescu:taglayout:0.0.3'
+      compile 'com.flavpopescu:taglayout:+'
     }
     
 Make sure you have `jcenter()` added as a maven repo in your project's `build.gradle` (newer Android Studio version already include this by default):
@@ -38,7 +38,3 @@ Make sure you have `jcenter()` added as a maven repo in your project's `build.gr
     repositories {
         jcenter()
     }
-
-**Note**: The library may still not be found in `jcenter` as it syncs. If so, please add the following to your repositories:
-
-    maven { url 'https://dl.bintray.com/flavp/maven/'}
